@@ -13,6 +13,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.core.view.WindowCompat
 import com.example.mynews.MyNewsApplication
 import com.example.mynews.ui.theme.JetnewsTheme
+import com.example.mynews.utils.rememberWindowSizeClass
 import com.google.accompanist.insets.ProvideWindowInsets
 import com.google.accompanist.insets.statusBarsHeight
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
@@ -24,23 +25,24 @@ class MainActivity : AppCompatActivity() {
 
         val appContainer = (application as MyNewsApplication).container
         setContent {
-//            val windowSizeClass = rememberWindowSizeClass()
-//            MyNewsApp(appContainer, windowSizeClass)
-            JetnewsTheme {
-                ProvideWindowInsets {
-                    rememberSystemUiController().setStatusBarColor(
-                        Color.Transparent,
-                        darkIcons = MaterialTheme.colors.isLight
-                    )
+            val windowSizeClass = rememberWindowSizeClass()
+            MyNewsApp(appContainer, windowSizeClass)
 
-                    Column {
-                        Spacer(modifier = Modifier
-                            .statusBarsHeight()
-                            .fillMaxWidth())
-                        Text(text = "1\n 2\n 3\n 3")
-                    }
-                }
-            }
+//            JetnewsTheme {
+//                ProvideWindowInsets {
+//                    rememberSystemUiController().setStatusBarColor(
+//                        Color.Transparent,
+//                        darkIcons = MaterialTheme.colors.isLight
+//                    )
+//
+//                    Column {
+//                        Spacer(modifier = Modifier
+//                            .statusBarsHeight()
+//                            .fillMaxWidth())
+//                        Text(text = "1\n 2\n 3\n 3")
+//                    }
+//                }
+//            }
         }
     }
 }
